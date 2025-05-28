@@ -59,12 +59,12 @@
       </div>
 
       <!-- Parallax section 1 -->
-      <section class="parallax-section d-flex align-items-center justify-content-center" style="background-image: url('assets/wood.jpg');">
+      <section class="parallax-section d-flex align-items-center justify-content-center" style="background-image: url('assets/tile1.jpg');">
         <h2 class="text-white display-4 fw-bold text-shadow">Discover the Art of Tiling</h2>
       </section>
 
       <!-- Parallax section 2 with a new background and different overlay -->
-      <section class="parallax-section d-flex align-items-center justify-content-center" style="background-image: url('assets/image1.jpg'); min-height: 300px;">
+      <section class="parallax-section d-flex align-items-center justify-content-center" style="background-image: url('assets/tile2.jpg'); min-height: 300px;">
         <div class="bg-dark bg-opacity-50 rounded-4 p-4">
           <h2 class="text-white display-5 fw-bold text-shadow mb-2">Inspired by Tradition</h2>
           <p class="text-white fs-5 mb-0">Classic patterns meet modern design in every tile.</p>
@@ -72,7 +72,7 @@
       </section>
 
       <!-- Parallax section 3 with another background and overlay -->
-      <section class="parallax-section d-flex align-items-center justify-content-center" style="background-image: url('assets/image2.jpg'); min-height: 300px;">
+      <section class="parallax-section d-flex align-items-center justify-content-center" style="background-image: url('assets/tile3.jpg'); min-height: 300px;">
         <div class="bg-light bg-opacity-75 rounded-4 p-4">
           <h2 class="text-dark display-6 fw-bold text-shadow mb-2">Handcrafted Quality</h2>
           <p class="text-dark fs-6 mb-0">Each piece is unique, made with care and artistry.</p>
@@ -90,9 +90,26 @@
         background-repeat: no-repeat;
         position: relative;
         margin-bottom: 0;
+        z-index: 1;
+      }
+      .parallax-section > * {
+        position: relative;
+        z-index: 2;
+      }
+      .parallax-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.2); /* subtle overlay for readability */
+        z-index: 1;
       }
       .text-shadow {
         text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      }
+      @media (max-width: 991px) {
+        .parallax-section {
+          background-attachment: scroll; /* fallback for mobile/tablet */
+        }
       }
     </style>
   </body>
